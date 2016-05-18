@@ -1,5 +1,5 @@
 ---
-title: That's the home page!
+title: Home
 layout: page
 ---
 
