@@ -8,7 +8,7 @@
 # Site settings
 title: Hey
 email: jzxwong@gmail.com
-description: Zhixun Wang (Jason or 王志詢 in Chinese)
+description: Zhixun Wang (Jason or 王志詢)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://wangzhixun.com" # the base hostname & protocol for your site
 twitter_username: ZhixunWang
