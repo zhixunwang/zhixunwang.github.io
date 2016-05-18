@@ -15,5 +15,5 @@ twitter_username: ZhixunWang
 github_username:  zhixunwang
 
 # Build settings
-# markdown: kramdown
-markdown: redcarpet
+markdown: kramdown
+# markdown: redcarpet
