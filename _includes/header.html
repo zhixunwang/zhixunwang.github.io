@@ -11,7 +11,7 @@
     {% for sitePage in site.pages %}
     {% if sitePage.title == "About" or sitePage.title == "中文" or sitePage.title == "Design" or sitePage.title == "Science" %}
 
-    <a class="page-link" href="{{sitePage.url | prepend: site.baseurl }}">{{sitePage.title}}</a><span class="exclamationMark">/</span>
+    <center>  <a class="page-link" href="{{sitePage.url | prepend: site.baseurl }}">{{sitePage.title}}</a><span class="exclamationMark">/</span> </center>
     {% endif %}
     {% endfor %}
   </div>
