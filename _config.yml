@@ -6,9 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Hey
+title: An Island
 email: jzxwong@gmail.com
-description: Zhixun Wang (Jason or 王志詢)
+description: 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://wangzhixun.com" # the base hostname & protocol for your site
 twitter_username: ZhixunWang
