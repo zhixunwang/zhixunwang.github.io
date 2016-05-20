@@ -2,7 +2,7 @@
 layout: post
 title:  "回不去的北京"
 date:   2013-06-30 00:00:00
-categories: chinese
+categories: chinese, opinion
 ---
 
 北京，竟慢慢成了我一塊心病。
