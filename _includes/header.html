@@ -9,7 +9,7 @@
   <div class="trigger site-navigation">
 
     {% for sitePage in site.pages %}
-    {% if sitePage.title = "science" %}
+    {% if sitePage.title == "science" %}
 
     <a class="page-link" href="{{sitePage.url | prepend: site.baseurl }}">{{sitePage.title}}</a><span class="exclamationMark">/</span>
     {% endif %}
