@@ -131,8 +131,8 @@ $(document).ready(function () {
 <div id="click-through-rate-improvement" class="section level2">
 <h2>Click through rate improvement</h2>
 <p>The table below shows the improvement of click through rate during hours with more TV ads than hours with fewer TV ads.</p>
-<div id="htmlwidget-745" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-745">{"x":{"data":[["1","2","3"],["moebel","IKEA","both"],[0.306335555555234,0.0961227434140738,0.0689334051854651],[0.0989674671397481,0.00163074566158595,0.0293807450362851]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> \u003c/th>\n      <th>Brand\u003c/th>\n      <th>Average CTR Improvement\u003c/th>\n      <th>Combined CTR Improvement\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar d = parseFloat(data[2]); $(this.api().cell(row, 2).node()).html(isNaN(d) ? '' : (d * 100).toFixed(2) + '%');\nvar d = parseFloat(data[3]); $(this.api().cell(row, 3).node()).html(isNaN(d) ? '' : (d * 100).toFixed(2) + '%');\n}"},"callback":null,"filter":"none"},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-9728" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9728">{"x":{"data":[["1","2","3"],["moebel","IKEA","both"],[0.306335555555234,0.0961227434140738,0.0689334051854651],[0.0989674671397481,0.00163074566158595,0.0293807450362851]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> \u003c/th>\n      <th>Brand\u003c/th>\n      <th>Average CTR Improvement\u003c/th>\n      <th>Combined CTR Improvement\u003c/th>\n    \u003c/tr>\n  \u003c/thead>\n\u003c/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data) {\nvar d = parseFloat(data[2]); $(this.api().cell(row, 2).node()).html(isNaN(d) ? '' : (d * 100).toFixed(2) + '%');\nvar d = parseFloat(data[3]); $(this.api().cell(row, 3).node()).html(isNaN(d) ? '' : (d * 100).toFixed(2) + '%');\n}"},"callback":null,"filter":"none"},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 <p>Note:</p>
 <p>Each line is a different scenario. The first line is the CTR improvement when only Moebel’s ads are runing on TV. The second line is the CTR improvement when only IKEA’s ads are runing on TV. The third line is when both ads are running on TV.</p>
 <p>The column “Average CTR Improvement” calculated the CTR of each hour by averaging the CTR of that hour in each day. The column “Combined CTR Improvement” calculates the CTR of each hour by dividing the total of clicks by the total of impressions of that hour in each day.</p>
@@ -141,6 +141,9 @@ $(document).ready(function () {
 <h2>Script</h2>
 <div id="define-function-to-read-and-lightly-process-ad-occurrence-data" class="section level3">
 <h3>Define function to read and lightly process ad occurrence data</h3>
+<blockquote>
+<p>This is the function that simply reads in the ad occurrence data. Variable names are changed, ad duration is converted from string to numeric, and datetime variable is converted to a date/time object in R.</p>
+</blockquote>
 <pre class="r"><code>read_ttx = function(path) {
   ad_vars = c(&quot;datetime&quot;, &quot;channel&quot;, &quot;company&quot;, &quot;brand&quot;, &quot;product&quot;, &quot;category&quot;, &quot;asset_type&quot;, &quot;duration&quot;, &quot;program&quot;, &quot;affiliation&quot;, &quot;country&quot;)
   out_data = fread(path, col.names = ad_vars) %&gt;%
@@ -152,13 +155,19 @@ $(document).ready(function () {
 </div>
 <div id="read-data" class="section level3">
 <h3>Read data</h3>
-<p>Read and combine ad occrrence data of IKEA and Moebel.</p>
+<p>Read and combine ad occurrence data of IKEA and Moebel.</p>
+<blockquote>
+<p>This part uses the function defied earily to read in ad occurrence data for both Moebel and IKEA, then concatenate them together as one dataset. Then aggregate the data by brand and date/hour to get total ad duration of each brand per day/hour.</p>
+</blockquote>
 <pre class="r"><code>ttx_ads = bind_rows(read_ttx(&quot;~/Desktop/moebel/ikea_ads.csv&quot;), read_ttx(&quot;~/Desktop/moebel/moebel_ads.csv&quot;)) %&gt;%
   arrange(datetime) %&gt;%
   mutate(datehour = substr(datetime, 1, 13)) %&gt;%
   group_by(datehour, brand) %&gt;%
   summarise(duration = sum(duration, na.rm = TRUE))</code></pre>
 <p>Read campaign metrics data and calculate click through rate</p>
+<blockquote>
+<p>Read campaign data, calclate CTR, and create day/hour variable that functions as the key to later connect with ad occurrence data</p>
+</blockquote>
 <pre class="r"><code>campnum = fread(&quot;~/Desktop/moebel/campaign_metrics.csv&quot;) %&gt;%
   mutate(datetime = ymd_hms(datetime), 
          ctr = clicks / impressions, 
@@ -166,7 +175,19 @@ $(document).ready(function () {
 </div>
 <div id="merge-campaign-metrcis-and-ad-occurrence-data-and-analyze" class="section level3">
 <h3>Merge campaign metrcis and ad occurrence data, and analyze</h3>
-<p>Define function that merges and calculates the avergae improvement</p>
+<p>Define function that merges and calculates the average improvement</p>
+<blockquote>
+<p>This function does the following things:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Select on which brands’ ads to include based on the input parameter</li>
+<li>aggreage campaign metrics data by day/hour</li>
+<li>Merge campaign metrics data and ad occurrence data</li>
+<li>Get the 24 subsets of the data for each hour of day to compare CTR in days with more ads in that hour of day to CTR in days with fewer ads in that hour of day. So each interation will create a improvement percentage calculated as (average CTR of more ads - average CTR of fewer ads) / average CTR of fewer ads</li>
+<li>Average these 24 improvement percentages to get the final number</li>
+</ol>
+</blockquote>
+</blockquote>
 <pre class="r"><code>synccamp = function(campaign, ttx, brands = &quot;both&quot;, ctr_method = &quot;sum/sum&quot;) {
   which_brand = ifelse(toupper(brands) %in% c(&quot;IKEA&quot;, &quot;MOEBEL&quot;), ifelse(toupper(brands) == &quot;MOEBEL&quot;, &quot;IKEA&quot;, &quot;moebel.de&quot;), &quot;&quot;)
   moik = full_join(campaign, ttx %&gt;% filter(brand != which_brand), by = &quot;datehour&quot;) %&gt;%
@@ -188,6 +209,9 @@ $(document).ready(function () {
   return(mean(xx))
 }</code></pre>
 <p>Create the table for final output including all three scenarios</p>
+<blockquote>
+<p>Apply the function created above on different scenarios, and output the result in a table</p>
+</blockquote>
 <pre class="r"><code>moebel_out = expand.grid(brands = c(&quot;moebel&quot;, &quot;IKEA&quot;, &quot;both&quot;), ctr_method = c(&quot;avg&quot;, &quot;sum/sum&quot;), improvement = NA)
 for (i in 1:nrow(moebel_out)) moebel_out$improvement[i] = synccamp(campnum, ttx_ads, moebel_out$brands[i], moebel_out$ctr_method[i])
 moebel_out = dcast(moebel_out, brands ~ ctr_method, value.var = &quot;improvement&quot;)
