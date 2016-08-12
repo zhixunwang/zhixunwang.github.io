@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: Science
-permalink: /science/
+permalink: "/science/"
 tagline: "Scientific Stuff"
 category: "science"
 ---
