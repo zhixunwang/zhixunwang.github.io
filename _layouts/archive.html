@@ -2,11 +2,12 @@
 layout: default
 ---
 
+{% for post in site.posts  %}
+{% unless post.draft %}
+
 <div id="content" class="content">
     <h3>Recent Posts</h3>
     <ul class="category {{category[0] | uri_escape | downcase | slugify}}">       
-        {% for post in site.posts  %}
-        {% unless post.draft %}
 
         {% for cat in post.categories %}
         {% if cat == page.category %}
@@ -23,9 +24,9 @@ layout: default
         </li>
         {% endif %}
         {% endfor %}
-
-        {% endfor %}
     </ul>
 
 
 </div>
+
+{% endfor %}
