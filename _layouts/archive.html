@@ -14,11 +14,9 @@ layout: default
         {% unless post.draft %}
 
         {% if post.menutitle %}
-        {% if category == page.category %}
         {% assign title = post.menutitle %}
         {% else %}
         {% assign title = post.title %}
-        {% endif %}
         {% endif %}
 
         <li>
