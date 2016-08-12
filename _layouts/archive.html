@@ -9,7 +9,7 @@ layout: default
     <h3>Recent Posts</h3>
     <ul class="category {{category[0] | uri_escape | downcase | slugify}}">       
 
-        {% for cat in post.categories %}
+        {% for cat in site.categories %}
         {% if cat == page.category %}
 
         <li>
