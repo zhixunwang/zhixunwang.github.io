@@ -7,7 +7,9 @@ layout: default
  
     {% assign sorted_cats = site.categories | sort %}
     {% for category in sorted_cats %}
+    {% if category == page.category %}
     {% assign sorted_posts = category[1] | reversed %}
+    {% endif %}
     <h3 id="{{category[0] | uri_escape | upcase | slugify }}">{{category[0] | camelcase }}</h3>
     <ul class="category {{category[0] | uri_escape | downcase | slugify}}">  
         {% for post in sorted_posts %}
