@@ -18,6 +18,7 @@ permalink:    /blog/:categories/:title
 cover:        /assets/mountain-cover.jpg
 twitter_username: ZhixunWang
 github_username:  zhixunwang
+comments: true
 
 # Build settings
 markdown: kramdown
