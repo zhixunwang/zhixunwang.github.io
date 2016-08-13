@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: Opinion
-permalink: /opinion/
-category: "opinion"
+title: Thoughs
+permalink: /thoughts/
+category: "thoughts"
 tagline: "it's all about perception."
 ---
