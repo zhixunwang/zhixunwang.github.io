@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: Thoughs
+title: Thoughts
 permalink: /thoughts/
 category: "thoughts"
 tagline: "it's all about perception."
