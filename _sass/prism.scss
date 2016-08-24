@@ -2,7 +2,7 @@
 code,
 pre {
     color: black;
-    background: rgba(250,250,250,0.8);
+    background: none;
     text-shadow: 0 1px white;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
@@ -55,8 +55,8 @@ pre code {
 
 :not(pre) > code,
 pre {
-    // width: 90%;
-    // margin: auto;
+    width: 90%;
+    margin: auto;
     background: rgba(250,250,250,0.8);
     max-width: 650px;
     border-top: 1px solid #eeeeee;
