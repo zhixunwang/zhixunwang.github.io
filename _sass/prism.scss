@@ -2,14 +2,14 @@
 code,
 pre {
     color: black;
-    background: none;
+    background: rgba(250,250,250,0.8);;
     text-shadow: 0 1px white;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre-wrap;
     word-spacing: normal;
     word-break: normal;
-    word-wrap: break-word;
+    word-wrap: normal;
     line-height: 1.5;
 
     -moz-tab-size: 4;
@@ -55,9 +55,14 @@ pre code {
 
 :not(pre) > code,
 pre {
+    width: 90%;
+    margin: auto;
     background: rgba(250,250,250,0.8);
+    max-width: 650px;
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
+    border-left: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
 }
 
 /* Inline code */

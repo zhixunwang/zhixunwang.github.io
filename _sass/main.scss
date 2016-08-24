@@ -1,37 +1,66 @@
 // header
 .main-header {
-    margin-bottom: 40px;
+    margin-bottom: 90px;
     padding-top: 3rem;
-    background-size: cover;
-    background-position: center;
+    // background-size: cover;
+    // background-position: center;
 
     &.has-cover {
         .page-title,
         .page-title a,
         .page-description,
-        .nav a {
+        .nav-full a {
             color: $color-white;
             text-shadow: 1px 1px 5px rgba($color-black, 0.5);
         }
 
-        .nav {
+        .nav-full {
             &:before, &:after {
                 background: linear-gradient(to right, rgba($color-white, 0) 0%,rgba($color-white, 1) 50%,rgba($color-white, 0) 100%);
             }
         }
     }
 
+    .container,
+    .nav-full,
     .nav,
     .page-title,
-    .page-description {
-        width: 90%;
-        max-width: 500px;
-        margin: auto;
+    // .page-description {
+    //     width: 90%;
+    //     max-width: 500px;
+    //     margin: auto;
+    // }
+
+    .nav-full {
+      min-height: 100
+    }
+
+    .big-title {
+      float: left;
+      margin: 0 0 1em 0;
+      cursor: pointer;
+      // text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 35px;
+      // line-height: 28px;
+      font-weight: 500;
+      a {
+          text-decoration: none;
+      }
+    }
+
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 700px;
     }
 
     .nav {
-        margin: 40px auto 50px;
-        padding-bottom: 20px;
+        float: right;
+        margin: 0;
+        position: relative;
+        padding: 0;
+
 
         ul {
             list-style: none;
@@ -50,9 +79,12 @@
 
     .page-title {
         margin: 0 auto 15px;
+        span {
+          font-weight: 700;
+        }
         a {
             font-family: Mrs Saint Delafield;
-            font-size: 70px;
+            font-size: 50px;
             text-decoration: none;
             text-shadow: 1px 1px 5px rgba($color-black, 0.3);
         }
@@ -67,9 +99,9 @@
     }
 }
 
-.nav:before, 
-.nav:after, 
-.site-footer:before, 
+.nav:before,
+.nav:after,
+.site-footer:before,
 .author-info:after {
     content: '';
     display: block;

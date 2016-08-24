@@ -15,7 +15,7 @@ language:     "en" # default language of the blog. Language codes: http://www.w3
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://wangzhixun.com" # the base hostname & protocol for your site
 permalink:    /blog/:categories/:title
-cover:        /assets/mountain-cover.jpg
+#cover:        /assets/mountain-cover.jpg
 twitter_username: ZhixunWang
 github_username:  zhixunwang
 comments: true
