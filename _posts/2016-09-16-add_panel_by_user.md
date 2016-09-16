@@ -3,6 +3,7 @@ layout: post
 title:  "Add Conditional Panels Based on Username in Shiny"
 date:   2016-09-16 11:02:50
 categories: [english, science]
+tags: [R, Shiny]
 comments: true
 ---
 
