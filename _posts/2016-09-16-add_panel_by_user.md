@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Add Panels Based on Username in Shiny"
-date:   2016-09-16 00:00:00
-categories: ['science']
-tags: ['R', 'Shiny']
+date:   2016-09-16 11:02:50
+categories: [science]
+tags: [R, Shiny]
+comments: true
 ---
 
 In Shiny, we can add a panel on-the-go based on the value from an input UI easily through `conditionalPanel(condition = "input.variable == 5")`. However, when it comes to achieving the same based on authenticated username for a private app, it's a little tricky.
