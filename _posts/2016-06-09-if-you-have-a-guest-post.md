@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "If you have a Guest post.."
+categories: [science]
 comments: true
 description: "If you have a Guest post.."
 keywords: "dummy content"
