@@ -89,10 +89,10 @@ shinyUI(
   )
 ```
 
-The three solutions produce visually exactly the same output on the page for purpose of showing an additional piece of content on the page for certain users.
-* The first one might be logically more intuitive, but the execution is not what `renderText()` is designed for.
-* The second one is designed for creating removable UI parts.
-* The third one is a more powerful alternative for the first one. In addition to creating a new UI section based on some input or username, it allows you to even customize the values of the new input field based on other inputs or username. For example, you want everyone in the company to see the overall KPIs, and you want specific VPs to have an additional input field to select certain departments they are allowed to see. The additional input values can be changed based on the user and the KPIs will change based on which department they selected.
+The three solutions produce visually exactly the same output on the page for purpose of showing an additional piece of content on the page for certain users.  
+* The first one might be logically more intuitive, but the execution is not what `renderText()` is designed for.  
+* The second one is designed for creating removable UI parts.  
+* The third one is a more powerful alternative for the first one. In addition to creating a new UI section based on some input or username, it allows you to even customize the values of the new input field based on other inputs or username. For example, you want everyone in the company to see the overall KPIs, and you want specific VPs to have an additional input field to select certain departments they are allowed to see. The additional input values can be changed based on the user and the KPIs will change based on which department they selected.  
 
 ### Conclusion
 Use whichever makes sense to you to achieve the basic functions, but `renderUI()` gives you the most flexibility.
