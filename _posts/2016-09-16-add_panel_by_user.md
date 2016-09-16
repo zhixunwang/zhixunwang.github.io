@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Three Ways to Add Panels Based on Username in Shiny"
+title:  "Add Panels Based on Username in Shiny"
 date:   2016-09-16 00:00:00
 categories: ['science']
 tags: ['R', 'Shiny']
