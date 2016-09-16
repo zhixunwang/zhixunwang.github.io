@@ -1,42 +1,29 @@
 ---
 layout: default
+title: Home
 ---
 
+{% include intro.html %}
 
-<div id="content" class="content">
-    <h3>All Posts</h3>
-    <ul class="category recent-posts">       
-        {% for post in site.posts limit:100  %}
-        {% unless post.draft %}
-
-        {% if post.menutitle %}
-        {% assign title = post.menutitle %}
-        {% else %}
-        {% assign title = post.title %}
-        {% endif %}
-
-
+<section class="post-list">
+  <div class="container">
+    {% for post in site.posts %}
+      {% unless post.draft %}
+      {% unless post.next %}
+        <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
+      {% else %}
         {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
         {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         {% if year != nyear %}
-          <br>
-          <h5>{{ post.date | date: '%Y' }}</h5>
+          <h2 class="category-title">{{ post.date | date: '%Y' }}</h2>
         {% endif %}
+      {% endunless %}
+      <article class="post-item">
+        <span class="post-meta date-label">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <div class="article-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
+      </article>
+      {% endunless %}
+    {% endfor %}
+  </div>
 
-
-        <li>
-            <div class="article">
-                <article class="article" itemscope itemtype="http://schema.org/BlogPosting">
-                    <header class="post-header">
-                        <span class="title"><a itemprop="name" href="{{ post.url | prepend: site.github.url | prepend: site.baseurl}}" title="{{ title }}">{{ title }}</a></span>
-                        <time class="date" itemprop="datePublished" datetime="{{post.date | date: "%Y-%m-%d"}}">{{post.date | date: "%B %e, %Y"}}</time>
-                    </header>
-                </article>
-            </div>
-        </li>
-        {% endunless %}
-        {% endfor %}
-    </ul>
-
-
-</div>
+</section>

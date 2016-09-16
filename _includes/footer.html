@@ -1,5 +1,7 @@
 <footer class="site-footer">
-    <button class="go-to-top"></button>
-    <p class="copyright"><a href="{{site.github.url | prepend: site.baseurl}}" title="{{ site.title }}">{{site.title}}</a> &copy; {{ site.time | date: '%Y' }} | <a href="{{ "/feed.xml" | prepend: site.github.url | prepend: site.baseurl}}" title="RSS Feed">RSS Feed</a></p>
-    <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a> with the <a href="https://github.com/jwillmer/jekyllDecent" title="jekyllDecent Theme">jekyllDecent</a> theme</p>
+  <div class="container">
+    <small class="block">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.</small>
+    <small class="block">Made with <i class="fa fa-heart" aria-hidden="true" style="color:#DD3D36"></i> using <a href="http://jekyllrb.com/">Jekyll</a>. Typeface by <a href="https://www.fontsquirrel.com/fonts/dejavu-sans-mono">DejaVu Sans Mono</a> and <a href="http://fontawesome.io/">Font Awesome</a>.</small>
+    <small><a href="https://github.com/heiswayi/thinkspace">Thinkspace</a> theme by <a href="http://heiswayi.github.io/">Heiswayi Nrird</a>.</small>
+  </div>
 </footer>

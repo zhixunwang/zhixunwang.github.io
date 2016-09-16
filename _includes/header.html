@@ -1,26 +1,3 @@
-{% if page.cover %} {% assign cover = page.cover %} {% elsif site.cover %} {% assign cover = site.cover %} {% endif %}
-
-<header class="main-header detail-page image-bg {% if cover %} has-cover" style="background-image: url({{ cover | prepend: site.github.url | prepend: site.baseurl}})" {% else %} no-cover " {% endif %}>
-  <nav class="nav-full ">
-    <div class="container ">
-    <h1 class="big-title "><a href="{{ site.github.url }}/" title="{{ site.title }} ">{{ site.title }}</a></h1>
-    <div class="nav ">
-        <ul>
-            {% assign pages = site.pages | sort:"weight "  %}
-            {% for my_page in pages %}
-
-            {% if my_page.menutitle %}
-            {% assign title = my_page.menutitle %}
-            {% elsif site.title %}
-            {% assign title = my_page.title %}
-            {% endif %}
-
-            {% if title and my_page.visible != false %}
-            <li><a class="page-link " href="{{ my_page.url | prepend: site.github.url | prepend: site.baseurl}}" title="{{ title }} ">{{ title }}</a></li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
-  </div>
-  </nav>
+<header class="site-header">
+  {% include nav.html %}
 </header>

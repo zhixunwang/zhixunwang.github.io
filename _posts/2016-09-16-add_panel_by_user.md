@@ -13,7 +13,7 @@ Shiny stores the authenticated username - the email address - in `session$user`.
 ### Solution 1 - `conditionalPanel()`
 Though username cannot be referenced directly in `shinyUI()`, there is a work around - a text output can be passed to `shinyUI()` and be used as the condition. One trick is that by default, `renderText()` only really renders when it is called in `shinyUI()`. Therefore, we need to change the default behavior of `outputOptions()` to always render the text no matter whether it has an output in `shinyUI()` so we can use it only in the evaluation in `conditionalPanel()`. Below is the partial code to get it work.
 
-```
+```r
 shinyServer(function(input, output, session) {
   output$the_condition = renderText({
     if (
@@ -43,7 +43,7 @@ shinyUI(
 ```
 
 ### Solution 2 - `insertUI()`
-```
+```r
 shinyServer(function(input, output, session) {
   if (
     is.null(session$user)
@@ -67,7 +67,7 @@ shinyUI(
 ```
 
 ### Solution 3 - `renderUI()`
-```
+```r
 shinyServer(function(input, output, session) {
   if (
     is.null(session$user)
