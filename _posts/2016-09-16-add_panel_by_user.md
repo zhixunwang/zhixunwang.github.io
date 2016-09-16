@@ -2,7 +2,7 @@
 layout: post
 title:  "Add Panels Based on Username in Shiny"
 date:   2016-09-16 11:02:50
-categories: [english, science]
+categories: ['english','science']
 comments: true
 ---
 
