@@ -15,7 +15,7 @@ twitter_username: "ZhixunWang"
 comments: true
 
 # Build settings
-permalink   : /:date/:title/
+# permalink   : /:year/:title/
 markdown    : kramdown
 highlighter : rouge
 include: ['_pages']
