@@ -3,7 +3,7 @@
 <header class="main-header detail-page image-bg {% if cover %} has-cover" style="background-image: url({{ cover | prepend: site.github.url | prepend: site.baseurl}})" {% else %} no-cover " {% endif %}>
   <nav class="nav-full ">
     <div class="container ">
-    <h1 class="big-title "><a href="{{ site.github.url}}/ " title="{{ site.title }} ">{{ site.title }}</a></h1>
+    <h1 class="big-title "><a href="{{ site.github.url }}/ " title="{{ site.title }} ">{{ site.title }}</a></h1>
     <div class="nav ">
         <ul>
             {% assign pages = site.pages | sort:"weight "  %}
