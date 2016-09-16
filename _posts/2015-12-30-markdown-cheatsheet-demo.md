@@ -4,6 +4,7 @@ title: "Markdown Cheatsheet Demo"
 comments: true
 description: "Markdown Cheatsheet Demo..."
 keywords: "markdown, typography components, dummy content"
+categories: [science]
 ---
 
 > This is Markdown Cheatsheet Demo for **Thinkspace**, this Jekyll theme. Please check the raw content of this file for the markdown usage.
