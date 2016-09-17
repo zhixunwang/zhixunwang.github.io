@@ -12,7 +12,7 @@ In Shiny, we can add a panel on-the-go based on the value from an input UI easil
 Shiny stores the authenticated username - the email address - in `session$user`. Since `session` only lives in `shinyServer()`, user information cannot be read directly in `shinyUI()` by `conditionalPanel()`. We have to start in `shinyServer()` and pass something to `shinyUI()` to make this work.
 
 ### Solution 1 - `conditionalPanel()`
-Though username cannot be referenced directly in `shinyUI()`, there is a work around - a text output can be passed to `shinyUI()` and be used as the condition. One trick is that by default, `renderText()` only really renders when it is called in `shinyUI()`. Therefore, we need to change the default behavior of `outputOptions()` to always render the text no matter whether it has an output in `shinyUI()` so we can use it only in the evaluation in `conditionalPanel()`. Below is the partial code to get it work.
+Though username cannot be referenced directly in `shinyUI()`, there is a work around - a text output can be passed to `shinyUI()` and be used as the condition. One trick is that [by default, `renderText()` only really renders when it is called in `shinyUI()`](http://stackoverflow.com/questions/29833222/numeric-output-value-as-condition-for-conditionalpanel). Therefore, we need to change the default behavior of `outputOptions()` to always render the text no matter whether it has an output in `shinyUI()` so we can use it only in the evaluation in `conditionalPanel()`. Below is the partial code to get it work.
 
 ```r
 shinyServer(function(input, output, session) {
@@ -99,3 +99,9 @@ The three solutions produce visually exactly the same output on the page for pur
 
 ### Conclusion
 Use whichever makes sense to you to achieve the basic functions, but `renderUI()` gives you the most flexibility.
+
+---
+**More on this topic:**  
+
+* [Build a dynamic UI that reacts to user input - RStudio](http://shiny.rstudio.com/articles/dynamic-ui.html)  
+* [shiny app will not work if the same "output" is used two times in Ui.R](https://github.com/rstudio/shiny/issues/743)
