@@ -1,0 +1,18 @@
+---
+layout: page
+title: Drafts
+---
+
+<section class="post-list">
+  <div class="container">
+    {% for post in site.posts %}
+    {% if post.draft %}
+      <article class="post-item">
+        <span class="post-meta date-label">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <div class="article-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
+      </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+</section>
