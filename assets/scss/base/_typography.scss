@@ -48,7 +48,7 @@ p {
 
   &.lead {
     font-size: rem(22);
-    font-weight: lighter;
+    font-weight: 300;
   }
 }
 
@@ -124,6 +124,7 @@ em {
 ul,
 ol,
 dl {
+    font-weight: lighter;
     margin-top: 0;
     margin-left: 1.2em;
     margin-bottom: 1rem;
