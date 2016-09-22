@@ -47,7 +47,7 @@ h6 {
 
 p {
   margin: 0 0 $small-spacing;
-  font-weight: 300;
+  // font-weight: 300;
 
   &.lead {
     font-size: rem(22);
@@ -96,7 +96,7 @@ code {
   border: none;
   font-family: "Monaco";
   font-size: 0.9em;
-  font-weight: 300;
+  // font-weight: 300;
   margin: 0;
   padding: 0 5px;
   background-color: lighten($light-gray-color, 13%);
@@ -114,7 +114,7 @@ pre {
 
   code {
     line-height: 1.75em;
-    font-weight: 300;
+    // font-weight: 300;
     padding: 0 !important;
   }
 }
