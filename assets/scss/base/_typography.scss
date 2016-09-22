@@ -1,4 +1,5 @@
 @import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,700");
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
 
 body {
   color: $base-font-color;
@@ -51,6 +52,8 @@ p {
     font-weight: 300;
   }
 }
+:lang(zh-Hant) {font-family: 'cwTeXFangSong', serif;}
+// :lang(zh-Hans) {font-family: DFKai-SB,BiauKai,serif;}
 
 a {
   color: $action-color;
