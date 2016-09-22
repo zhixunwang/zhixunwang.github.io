@@ -46,13 +46,13 @@ h6 {
 p {
   margin: 0 0 $small-spacing;
   font-weight: lighter;
+  :lang(zh-Hant) {font-family: 'cwTeXFangSong', serif;}
 
   &.lead {
     font-size: rem(22);
     font-weight: 300;
   }
 }
-:lang(zh-Hant) {font-family: 'cwTeXFangSong', serif;}
 // :lang(zh-Hans) {font-family: DFKai-SB,BiauKai,serif;}
 
 a {
